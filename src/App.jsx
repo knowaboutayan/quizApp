@@ -23,7 +23,7 @@ function App() {
     <>
       <Provider store={store}>
         <div style={{height:"100vh"}}>
-        <Header logo={img.easy}/>
+        <Header logo={img.quiz2}/>
         <Outlet />
         <Footer/>
         </div>
