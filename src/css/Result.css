@@ -1,23 +1,57 @@
+/* Result.css */
+
+/* Style for the container of the result */
 .result-container {
-    margin: 20px;
-    padding: 25px;
-    font-size: larger;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #f7f7f7;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(15, 15, 15, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+ border: 2px solid gray;
+    width: 60%;
+    min-width: 300px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: auto;
 }
 
-.result-details {
+/* Style for result headings */
+.result-container h3 {
+    margin: 10px 0;
+}
+
+/* Style for buttons container */
+.button-container {
     margin-top: 20px;
 }
 
-.result-details div {
-    margin-bottom: 20px;
+/* Style for buttons */
+.button-container button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.result-details h3 {
-    margin: 5px 0;
-    font-size: 18px;
-    color: #0b0a5a;
+.button-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+    .result-container {
+        padding: 15px;
+    }
+    
+    .result-container h3 {
+        font-size: 16px;
+    }
+    
+    .button-container button {
+        padding: 8px 16px;
+    }
 }

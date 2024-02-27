@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 
 const ErrorBox=({icon='',errorText='',navigateTo='',navigateText='',timeOutTime=''})=>{
+    let  x
     const navigation=useNavigate()
     return (
         <div>
@@ -10,7 +11,7 @@ const ErrorBox=({icon='',errorText='',navigateTo='',navigateText='',timeOutTime=
             <div><h3>{errorText}</h3></div>
             <div>
             {(navigateTo=='')?'':<h4>Redirect to <Link to={navigateTo}> {navigateText} </Link></h4>}
-            {(timeOutTime!='')?setTimeout(()=>navigation(navigateTo),timeOutTime):""}
+            {(timeOutTime!='')?x=setTimeout(()=>navigation(navigateTo),timeOutTime):""}
             </div>
         </div>
     )

@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom'
 import '../css/styleGeneral.css'
 import './Header.css'
+import Buttons from '../buttons/Buttons'
 const Header=({logo=""})=>{
     return(
         <div className="header flex flex-direction-row border justify-space-between">
@@ -21,8 +22,7 @@ const Header=({logo=""})=>{
                 </nav>
             </div>
             <div className='flex flex-direction-row'>
-                <i className='fa fa-facebook'></i>
-               
+            <Buttons btnName='signUp' bgcolor='hotpink'/>
             </div>
         </div>
     )

@@ -4,7 +4,6 @@ import Header from './components/Header'
 import* as img from './ImagesImport/Images'
 import { store } from './reduxTools/store'
 import { Outlet } from 'react-router-dom'
-import Result from './pages/Result'
 import Footer from './components/Footer'
 
 function App() {

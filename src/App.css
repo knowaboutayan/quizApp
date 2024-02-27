@@ -41,6 +41,10 @@ h2{
  
     padding: 25px;
 }
+h3{
+    font-size: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 h5{
 color: rgb(72, 72, 73);
 font-size: 2em;

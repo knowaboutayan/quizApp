@@ -20,9 +20,10 @@
 }
 
 #input {
-    width: 25%;
+
     min-width: 250px;
-    padding: 25px;
+    width: 25%;
+    padding: 10px;
     border: 1px solid rgb(98, 8, 83);
     background-color: gainsboro;
     align-self: center;
@@ -36,7 +37,7 @@
     font-size: 1.2em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
-
 label {
+  
     cursor: pointer;
 }
