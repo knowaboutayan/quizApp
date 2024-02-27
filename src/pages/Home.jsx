@@ -1,8 +1,7 @@
 import { codequiz, quiz1 } from '../ImagesImport/Images'
 import QuizDetailsBox from '../components/QuizDetalsBox'
-import quizBg from '../images/quizBg.jpg'
 import '../css/styleGeneral.css'
-import code from'../images/html.png'
+
 import Buttons from '../buttons/Buttons'
 import { useNavigate } from 'react-router-dom'
 const Home = () => {
