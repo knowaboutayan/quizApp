@@ -3,6 +3,7 @@ const initialState = {
     quizType: localStorage.getItem('quizType') || "",
     quizTopic: localStorage.getItem('quizTopic') || "",
     quizDifficulty: localStorage.getItem('quizDifficulty') || "",
+    quizResultShown:false,
     fetchedData: [],
     answersRespond: [],
 }
@@ -38,8 +39,11 @@ export const quizSlice = createSlice({
             state.answersRespond = [...state.answersRespond, questionID, (questionID, { 'questionID': questionID, 'response': response, 'marks': marks })];
 
             console.log(state.answersRespond)
+        },
+        setQuizResultShown:(state,action)=>{
+            state.quizResultShown=action.payload
         }
     }
 })
-export const { setQuizDifficulty, setQuizTopic, setQuizType, setFetchData, setUserResponse } = quizSlice.actions
+export const { setQuizDifficulty, setQuizTopic, setQuizType, setFetchData, setUserResponse ,setQuizResultShown} = quizSlice.actions
 export default quizSlice.reducer;

@@ -1,6 +1,7 @@
 import { Provider } from 'react-redux'
 import './App.css'
 import Header from './components/Header'
+import* as img from './ImagesImport/Images'
 import { store } from './reduxTools/store'
 import { Outlet } from 'react-router-dom'
 import Result from './pages/Result'
@@ -23,7 +24,7 @@ function App() {
     <>
       <Provider store={store}>
         <div style={{height:"100vh"}}>
-        <Header/>
+        <Header logo={img.easy}/>
         <Outlet />
         <Footer/>
         </div>

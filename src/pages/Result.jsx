@@ -1,26 +1,29 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import '../css/Result.css'; // Import the CSS file
 import resultImg from '../images/result.png'
 import Buttons from "../buttons/Buttons";
 import ErrorBox from "../Error/ErrorBox";
 import { unstable_HistoryRouter, useNavigate } from "react-router-dom";
+import { setQuizResultShown } from "../reduxTools/slice";
 const Result = () => {
+    const dispatch=useDispatch()
     const answers = useSelector(state => state.fetchedData);
     const answersRespond = useSelector(state => state.answersRespond);
     console.log(answers, answersRespond)
-    let count = 0;
-
+    let marks = 0;
+    let correctAns = 0;
     // Calculate marks obtained
     const marksObtained = () => {
         answers.forEach(ele => {
             for (let i = 0; i < answersRespond.length; i = i + 2) {
                 if (ele[0] === answersRespond[i]) {
                     // Check if the response matches and add marks accordingly
-                    (ele[1] === `${answersRespond[i + 1].response}_correct`) ? count = count + 2 : '';
+                    (ele[1] === `${answersRespond[i + 1].response}_correct`) ? marks = marks+ 2 : '';
+                    (ele[1] === `${answersRespond[i + 1].response}_correct`) ? correctAns++: '';
                 }
             }
         });
-        return count;
+        return marks;
     }
     const navigate=useNavigate()
 
@@ -56,10 +59,9 @@ const Result = () => {
         }
         else {
             localStorage.clear()
-            
+            dispatch(setQuizResultShown(true))
             return (
                 <div>
-
                     <h2>RESULT</h2>
 
                     <div className=" result-container flex flex-direction-row flex-wrap center-align">
@@ -68,6 +70,7 @@ const Result = () => {
                             <h3>Total Marks: {totalMarks}</h3>
                             <h3>Total Questions: {answers.length}</h3>
                             <h3>Total Attempted: {totalAttempted}</h3>
+                            <h3>Total Correct Answer: {correctAns}</h3>
                             <h3>Mark Obtained: {marksObtained()}</h3>
                             <h3>Grade: {calculateGrade()}</h3>
                         </div>

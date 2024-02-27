@@ -7,9 +7,11 @@
     font-family: 'Courier New', Courier, monospace;
     border-radius: 10px;
     height: max-content;
-    background-image: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
+    backdrop-filter: blur(5px);
+    background-color: rgba(246, 156, 179, 0.435);
+    margin: 10px auto;
     color: rgb(0, 0, 0);
-    border:5px solid rgb(103, 110, 0);
+    border: 5px solid rgb(109, 16, 88);
 
 }
 
@@ -21,10 +23,11 @@
     width: 25%;
     min-width: 250px;
     padding: 25px;
-    border: 1px solid rgb(51, 95, 1);
+    border: 1px solid rgb(98, 8, 83);
+    background-color: gainsboro;
     align-self: center;
-    margin: 2px;
-    color: rgb(255, 241, 39);
+    margin: 5px auto;
+    color: rgb(0, 0, 0);
     box-sizing: border-box;
     text-decoration: dotted;
     border-radius: 5px;
@@ -33,6 +36,7 @@
     font-size: 1.2em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
-label{
+
+label {
     cursor: pointer;
 }

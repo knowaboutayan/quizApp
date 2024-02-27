@@ -1,11 +1,11 @@
 import { Link, NavLink } from 'react-router-dom'
 import '../css/styleGeneral.css'
 import './Header.css'
-const Header=(logo="")=>{
+const Header=({logo=""})=>{
     return(
         <div className="header flex flex-direction-row border justify-space-between">
             <div>
-                <img src={logo} alt='logo.png' width={'200px'} className='border'/>
+                <img src={logo} alt='logo.png' width={'60px'} className='border'/>
             </div>
             <div >
                 <nav className='flex flex-direction-row flex-wrap'>
