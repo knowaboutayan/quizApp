@@ -1,0 +1,38 @@
+#qNa-box {
+    width: 60%;
+    min-width: 300px;
+    padding: 0 10px;
+    font-size: 15px;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 10px;
+    height: max-content;
+    background-image: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
+    color: rgb(0, 0, 0);
+    border:5px solid rgb(103, 110, 0);
+
+}
+
+#qNa-box h4 {
+    color: rgb(85, 84, 84);
+}
+
+#input {
+    width: 25%;
+    min-width: 250px;
+    padding: 25px;
+    border: 1px solid rgb(51, 95, 1);
+    align-self: center;
+    margin: 2px;
+    color: rgb(255, 241, 39);
+    box-sizing: border-box;
+    text-decoration: dotted;
+    border-radius: 5px;
+    box-shadow: 0 0 5px gray;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+label{
+    cursor: pointer;
+}

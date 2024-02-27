@@ -1,0 +1,23 @@
+.result-container {
+    margin: 20px;
+    padding: 25px;
+    font-size: larger;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(15, 15, 15, 0.1);
+}
+
+.result-details {
+    margin-top: 20px;
+}
+
+.result-details div {
+    margin-bottom: 20px;
+}
+
+.result-details h3 {
+    margin: 5px 0;
+    font-size: 18px;
+    color: #0b0a5a;
+}
