@@ -17,7 +17,7 @@ createRoutesFromElements(
       <Route path="/" element={<Home />} />
 <Route path="quiz_process" element={<QuizProcess/>} />
 <Route path="choose_difficulty" element={<SelectDifficuly/>} />
-<Route path="question" element={<Questions/>} />
+<Route path="question" element={<Question/>} />
 
 <Route path="result" element={<Result/>} />   <Route/>
   ));
