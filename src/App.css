@@ -16,13 +16,12 @@ body {
 background-size: cover;
 }h1 {
     font-size: 3rem;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #FF9F45;
-    font-weight:bold;
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+    color: #D2FFC9;
+font-weight: 900;
     padding: 12px;
     font-weight: 400;
-    filter: drop-shadow(0 3px 2px );
-}
+    
 h2{
    
     background-color: rgba(253, 175, 195, 0.479);
