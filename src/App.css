@@ -27,7 +27,7 @@ font-weight: 900;
 
 h2{
    
-    background-color: rgba(253, 175, 195, 0.479);
+    background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
     margin: 0;
     font-size: 3rem;
     width: 100wh;
@@ -35,7 +35,6 @@ h2{
     border-bottom: 5px solid rgb(187, 56, 143);
     font-weight:bold;
     backdrop-filter: blur(5px);
-    color:rgb(136, 9, 87);
     text-shadow: 2px 2px 4px rgb(143, 9, 92);
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
