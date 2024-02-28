@@ -1,4 +1,5 @@
-html {
+
+i {
     font-size: 15px;
 }
 
@@ -24,6 +25,7 @@ font-weight: 900;
     padding: 12px;
     font-weight: 400;
     
+}
 h2{
    
     background-color: rgba(253, 175, 195, 0.479);
