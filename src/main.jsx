@@ -11,39 +11,16 @@ import Result from './pages/Result.jsx'
 
 
 
-const route = createBrowserRouter([
-  {
-    path: '',
-    element: <App />,
-    children: [
-      {
-        path: "",
-        element: <Home />,
-      },
-      {
-        path: "quiz_process",
-        element: <QuizProcess />,
-      }, {
-        path: 'choose_difficulty',
-        element: <SelectDifficulty />
+const route = createBrowserRouter(
+createRoutesFromElements(
+    <Route path="" element={<App />}>
+      <Route path="/" element={<Home />} />
+<Route path="quiz_process" element={<QuizProcess/>} />
+<Route path="choose_difficulty" element={<SelectDifficuly/>} />
+<Route path="question" element={<Questions/>} />
 
-
-      },
-      {
-        path: 'question',
-        element: <Question />
-
-
-      },
-      {
-        path: 'result',
-        element: <Result />
-
-
-      },
-    ]
-  }
-]);
+<Route path="result" element={<Result/>} />   <Route/>
+  ));
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
