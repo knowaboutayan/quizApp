@@ -17,10 +17,8 @@ body {
 background-size: cover;
 }
 h1 {
-    font-size: 3rem;
-    
-font-family: 'Gill Sans', 'Gill Sans MT',Calibri, Trebuchet MS', sans-serif;    
-color: rgb(255, 247, 171);
+    font-size: 3rem;   
+   color: rgb(255, 247, 171);
 
 font-weight: 900;
     padding: 12px;
