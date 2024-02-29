@@ -59,37 +59,40 @@ const Question = () => {
         }
 
         return (
-            <Suspense fallback={<div>Loading...</div>}>
+            <>
                 <div>
                     <h2>{type}</h2>
                 </div>
-                <div></div>
-                <form onSubmit={(e) => { e.preventDefault() }}>
-                    <div>
-                        <section className="flex flex-direction-row flex-wrap justify-space-between margin-auto" style={{ width: '60%' }}>
-                            <div className="flex center-align"><h3>FULL MARKS ::{data.length * 2}</h3></div>
-                            <div className="flex center-align"><h3>TOPIC::{topic}</h3></div>
-                        </section>
+                <div>
 
-                        {data.map((ele, index1) => (
-                            <QuestionNanswer
-                                key={ele.id}
-                                questionID={ele.id}
-                                question={ele.question}
-                                index={index1}
-                                options={ele.answers}
-                                marks={'02'}
-                                multianswered={ele.multiple_correct_answers}
-                            />
-                        ))}
+                    <section className="flex flex-direction-row flex-wrap justify-space-between margin-auto" style={{ width: '60%' }}>
+                        <div className="flex center-align"><h4>FULL MARKS :{data.length * 2}</h4></div>
+                        <div className="flex center-align"><h4>TOPIC:{topic}</h4></div>
+                    </section>
+                </div>
+                <form action="https://api.web3forms.com/submit" method="POST" onSubmit={(e) => { e.preventDefault() }}>
+                    <input type="hidden" name="apikey" value="f713cda-77c2-464f-9705-99654497ad48"/>
+                    <input type="hidden" name="subject" value="quizTopic submission"/>
+                        <div>
+                            {data.map((ele, index1) => (
+                                <Suspense fallback={<div>Loading...</div>}>  <QuestionNanswer
+                                    key={ele.id}
+                                    questionID={ele.id}
+                                    question={ele.question}
+                                    index={index1}
+                                    options={ele.answers}
+                                    marks={'02'}
+                                    multianswered={ele.multiple_correct_answers}
+                                /></Suspense>
+                            ))}
 
-                    </div>
-                    <div className="flex center-align">
-                        <Buttons type="submit" btnName="submit" borderRadius="5px" fname={submitRequest} />
-                    </div>
+                        </div>
+                        <div className="flex center-align">
+                            <Buttons type="submit" btnName="submit" borderRadius="5px" fname={submitRequest} />
+                        </div>
                 </form>
-            </Suspense>
-        )
+
+            </>)
     }
 
     return null;

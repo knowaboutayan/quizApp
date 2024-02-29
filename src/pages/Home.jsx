@@ -1,5 +1,6 @@
 import { codequiz, quiz1 } from '../ImagesImport/Images'
 import QuizDetailsBox from '../components/QuizDetalsBox'
+
 import '../css/styleGeneral.css'
 
 import Buttons from '../buttons/Buttons'

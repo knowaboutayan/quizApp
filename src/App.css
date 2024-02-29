@@ -12,40 +12,46 @@ body {
     background-repeat: no-repeat;
 
 }
-.background-blur{backdrop-filter: blur(25px);
-background-size: cover;
-}h1 {
+
+.background-blur {
+    backdrop-filter: blur(25px);
+    background-size: cover;
+}
+
+h1 {
     font-size: 3rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
     color: rgb(14, 3, 114);
-    
+
     padding: 12px;
     font-weight: 400;
-    filter: drop-shadow(0 3px 2px );
+    filter: drop-shadow(0 3px 2px);
 }
-h2{
-   
-    background-color: rgba(253, 175, 195, 0.479);
+
+h2 {
+
     margin: 0;
-    font-size: 3rem;
-    width: 100wh;
+    color: rgb(24, 7, 175);
+    font-size: 2rem;
     margin-bottom: 25px;
-    border-bottom: 5px solid rgb(187, 56, 143);
-    font-weight:bold;
+    border-bottom: 5px rgb(100, 100, 100) solid;
+    font-weight: bold;
     backdrop-filter: blur(5px);
-    color:rgb(136, 9, 87);
-    text-shadow: 2px 2px 4px rgb(143, 9, 92);
+    background-color:  rgba(169, 168, 168, 0.376);
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
- 
     padding: 25px;
 }
-h3{
-    font-size: 1.5rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+h3 {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2rem;
+    color: #000;
+   
 }
-h5{
-color: rgb(72, 72, 73);
-font-size: 2em;
+
+h5 {
+    color: rgb(72, 72, 73);
+    font-size: 2em;
 }

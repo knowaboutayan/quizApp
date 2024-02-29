@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux"
 import { easy, hard, medium } from "../ImagesImport/Images"
 import ChooseTopic from "../components/ChooseTopic"
-import { setQuizDifficulty, setQuizResultShown, setQuizType } from "../reduxTools/slice"
+import { setQuizDifficulty, setQuizResultShown } from "../reduxTools/slice"
 
 const SelectDifficulty = () => {
   const dispatch = useDispatch()
