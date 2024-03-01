@@ -22,11 +22,10 @@ const Home = () => {
                 <section className=' background-box ' >
                     <div className='flex flex-direction-row flex-wrap  center-align,' style={{ width: '60%', minWidth: '320px', padding: "10px 20px", boxSizing: 'border-box' }}>
                         <h1 style={{ margin: '15px' }}>
-                            CODING QUIZ, CHECK YOUR SKILL AND KNOWLEDGE!
+                           <main> ByteBrain:</main> Delve into Coding and General Knowledge!
                         </h1>
 
-                        <h3 style={{ margin: '15px' }}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam labor
-                            e odio adipisci.
+                        <h3 style={{ margin: '15px' }}>Dive into coding and general knowledge with interactive quizzes and engaging content. Expand your skills and broaden your horizons!
                         </h3>
                         <div>
                             <Buttons fname={() => navigate('/quiz_process')} btnName='start quiz' borderRadius='10px' />
