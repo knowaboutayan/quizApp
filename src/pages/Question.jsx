@@ -80,9 +80,10 @@ const Question = () => {
 
                     <section className="flex flex-direction-row flex-wrap justify-space-between margin-auto" style={{ width: '60%' }}>
                         <div className="flex center-align"><h4>FULL MARKS :{data.length * 2}</h4></div>
-                        <div className="flex center-align"><h4>TOPIC:{topic}</h4></div>
+                        <div className="flex center-align"><h4>TOPIC:{topic}</h4>
+<h4>LEVEL:{difficulty}</h4></div>
+</div>
                     </section>
-div className="flex center-align"><h4>LEVEL:{difficulty}</h4></div>
                     </section>
                 </div>
                 <form action="https://api.web3forms.com/submit" method="POST" onSubmit={(e) => { e.preventDefault() }}>
