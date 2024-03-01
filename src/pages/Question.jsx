@@ -67,7 +67,6 @@ const Question = () => {
         let correctAnswerData = data.map((ele) => [ele.id, correctAnswer(ele.correct_answers)])
         dispatch(setFetchData(correctAnswerData))
         dispatch(setQuizResultShown(false))
-        window.addEventListener('DOMContentLoaded', localStorage.clear())
         const submitRequest = () => {
             confirm('Are you sure to submit?') ? navigate('/result') : '';
         }
