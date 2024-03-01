@@ -9,7 +9,7 @@ const generalKnowledgeAPI = (category = "", difficulty = "") => {
                 const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty.toLowerCase()}&type=multiple`);
 
                 if (!response.ok) {
-                    setData('error')
+                    setData(respons.ok)
                 }
 
                 const fetchedData = await response.json();
