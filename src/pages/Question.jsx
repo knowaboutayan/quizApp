@@ -40,7 +40,7 @@ const Question = () => {
                 <ErrorBox icon={systemError} errorText="Quiz Topic or Quiz Type not selected" navigateTo="/" navigateText="home" />
             </div>
         )
-    } else if (data === 'error' || data == false) {
+    } else if (data === 'error' || data == false||data["response_code"]==1) {
         return (
             <div className="flex center-align">
                 <ErrorBox icon={serverError} errorText="Internal server error" navigateTo="/" navigateText="home" />
