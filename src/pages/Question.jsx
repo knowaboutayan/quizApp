@@ -32,7 +32,7 @@ const Question = () => {
     })()
     console.log(data)
     if (data.length == 0) {
-        return <div className="flex center-align"><ErrorBox icon={loading} errorText="Loading... please wait"  ></ErrorBox></div>
+        return <div className="flex center-align"><ErrorBox icon={'https://media4.giphy.com/media/0U7bWQK9s75PjRKcHz/giphy.gif?cid=6c09b952k9wvbnqd1jqtun7z5lob6ydkqvzyjyj4rou0sn5a&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g} errorText="please wait...."  ></ErrorBox></div>
     }
     else if (topicId == '' || difficulty == "") {
         return (
