@@ -7,7 +7,9 @@ const generalKnowledgeAPI = (category = "", difficulty = "") => {
         const fetchData = async () => {
             try {
                 const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty.toLowerCase()}&type=multiple`);
-if(response.ok){
+if(!response.ok){
+setData('error')}
+
                 let fetchedData = await response.json();
                 
                 class Data {
@@ -43,7 +45,8 @@ if(response.ok){
                     );
                 });
 
-                setData(formattedData);}
+                setData(formattedData);
+
             } catch (err) {
                 console.error('Error fetching data:', err);
                 setData('error');
