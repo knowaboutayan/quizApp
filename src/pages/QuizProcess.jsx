@@ -51,6 +51,7 @@ const generalKnowledgeQuizTopic = [
         dispatch(setQuizId(2))
         return codingTopicDetails
       default:
+dispatch(setQuizId(1))
         return generalKnowledgeQuizTopic
     }
   }
