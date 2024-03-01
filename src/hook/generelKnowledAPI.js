@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
 
 const generalKnowledgeAPI = (category = "", difficulty = "") => {
-    const [data, setData] = useState([]);
+    let [data, setData] = useState([]);
     
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty.toLowerCase()}&type=multiple`);
-
-                
-
-                const fetchedData = await response.json();
+if(response.ok){
+                let fetchedData = await response.json();
                 
                 class Data {
                     constructor(id, question = '', correct_answers = '', incorrect_ops = []) {
@@ -45,7 +43,7 @@ const generalKnowledgeAPI = (category = "", difficulty = "") => {
                     );
                 });
 
-                setData(formattedData);
+                setData(formattedData);}
             } catch (err) {
                 console.error('Error fetching data:', err);
                 setData('error');
