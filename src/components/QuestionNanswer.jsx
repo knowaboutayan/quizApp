@@ -16,14 +16,15 @@ const QuestionNanswer = ({ display = 'hidden', index = 0, questionID = null, que
 
     return (
         <div id="qNa-box" className="flex flex-direction-column margin-auto" style={{ display: `${display}` }}>
-            <div className="flex flex-direction-row  justify-space-between">
+            <div >
                 <h3><b>({index + 1})</b> {question}</h3>
-                <div> <h4>[marks:{marks}]</h4></div>
+
             </div>
+            <h4 style={{ display: 'inline', textAlign: 'right',margin:0 }}>[marks:{marks}]</h4>
             <hr width='100%' />
             <div className="flex flex-direction-row flex-wrap center-align '',">
                 {
-                    optionKey.map((ele) => (options[ele] != null) ? <div key={"options" + ele} id='input'><label><input optionID={ele} type="radio" value={optionVal} onChange={(e) => { setOptionVal(e.target.value); recordResponse(questionID, ele, marks) }} name={ multiAnswerd ? '' : `same${questionID}`} />{options[ele]}</label></div> : null)
+                    optionKey.map((ele) => (options[ele] != null) ? <div key={"options" + ele} id='input'><label><input optionID={ele} type="radio" value={optionVal} onChange={(e) => { setOptionVal(e.target.value); recordResponse(questionID, ele, marks) }} name={multiAnswerd ? '' : `same${questionID}`} />{options[ele]}</label></div> : null)
                 }
             </div>
         </div>

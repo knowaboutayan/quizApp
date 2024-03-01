@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useApiHandler = (category = "python", difficulty = "easy") => {
+const codingQuizAPI = (category = "", difficulty = "") => {
     const [data, setData] = useState([]);
     useEffect(() => {( async () => {
             const API_KEY = "OcmNm6z2XBI1bXwDAc8XJHbhTbmGQwi0s8L7kV7r";
@@ -26,4 +26,4 @@ const useApiHandler = (category = "python", difficulty = "easy") => {
     return (data['error'] == 'No questions found') ? 'error' : data; // Optionally, you can return data if you want to use it outside the hook
 };
 
-export default useApiHandler;
+export default codingQuizAPI;

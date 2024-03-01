@@ -1,54 +1,64 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import ChooseTopic from "../components/ChooseTopic"
 import * as img from '../ImagesImport/Images'
-import { setQuizTopic } from "../reduxTools/slice"
+import { setQuizId, setQuizTopic, setTopicId } from "../reduxTools/slice"
 const QuizProcess = () => {
-  const topicDetails = [{
-    image: img.python,
-    topicName: "PYTHON"
+  const dispatch = useDispatch()
+  const quizId = useSelector(state => state.quizId)
 
-  }, {
-    image: img.java,
-    topicName: "JAVA"
-  },
-  {
-    image: img.js,
-    topicName: "JavaScript"
-  },
-  {
-    image: img.css,
-    topicName: "CSS"
-  },
-  {
-    image: img.html,
-    topicName: "HTML"
-  },
-  {
-    image: img.sql,
-    topicName: "SQL"
-  },
-  {
-    image: img.linux,
-    topicName: "LINUX"
-  },
-  {
-    image: img.docker,
-    topicName: "DOCKER"
-  },
-  {
-    image: img.bash,
-    topicName: "BASH"
-  },
-  {
-    image: img.devops,
-    topicName: "DEVOPS"
-  },]
+  class Topic {
+    constructor(image = '', topicName = '',topicId=null) {
+      this.image = image;
+      this.topicId=topicId;
+      this.topicName = topicName.split('_').join(" ").toLocaleUpperCase();
+      
+    }
+  }
 
+  const codingTopicDetails = [
+    new Topic(img.sql, 'SQL', 'SQL'),
+    new Topic(img.linux, 'LINUX', 'LINUX'),
+    new Topic(img.docker, 'DOCKER', 'DOCKER'),
+    new Topic(img.bash, 'BASH', 'BASH'),
+    new Topic(img.devops, 'DEVOPS', 'DEVOPS'),
+    new Topic(img.python, 'PYTHON', 'PYTHON'),
+    new Topic(img.java, 'JAVA', 'JAVA'),
+    new Topic(img.js, 'JavaScript', 'JavaScript'),
+    new Topic(img.css, 'CSS', 'CSS'),
+    new Topic(img.html, 'HTML', 'HTML')
+];
+
+const generalKnowledgeQuizTopic = [
+  new Topic(img.general_knowledge, 'general knowledge', 9),
+  new Topic(img.flim, 'Flim', 11),
+  new Topic(img.arts, 'arts', 25),
+  new Topic(img.history, 'history', 23),
+  new Topic(img.polytics, 'polytics', 24),
+  new Topic(img.geo, 'geography', 'geography'),
+  new Topic(img.math, 'mathematics', 19),
+  new Topic(img.sports, 'sports', 21),
+  new Topic(img.scienceNnature, 'NATURE', 17)
+];
+
+
+  const selectTopicDetails = (quizId) => {
+    switch (Number(quizId)) {
+      case 1:
+        dispatch(setQuizId(1))
+        return generalKnowledgeQuizTopic
+      case 2:
+
+        dispatch(setQuizId(2))
+        return codingTopicDetails
+      default:
+        return generalKnowledgeQuizTopic
+    }
+  }
 
   return (
     <>
       <div>
-        <ChooseTopic title={'TOPIC'} methodName={setQuizTopic} topicDetails={topicDetails} navigateTo={"choose_difficulty"} />
+        <ChooseTopic title={'TOPIC'} methodName={setTopicId} topicDetails={selectTopicDetails(quizId)} navigateTo={"choose_difficulty"} />
 
       </div>
 

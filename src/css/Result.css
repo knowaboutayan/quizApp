@@ -7,7 +7,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
- border: 2px solid gray;
+    border: 2px solid gray;
     width: 60%;
     min-width: 300px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -42,15 +42,16 @@
 
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
+
     /* Adjust styles for smaller screens */
     .result-container {
         padding: 15px;
     }
-    
+
     .result-container h3 {
         font-size: 16px;
     }
-    
+
     .button-container button {
         padding: 8px 16px;
     }

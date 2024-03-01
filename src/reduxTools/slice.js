@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
+    quizId: localStorage.getItem('quizId') || '',
     quizType: localStorage.getItem('quizType') || "",
     quizTopic: localStorage.getItem('quizTopic') || "",
+    topicId: localStorage.getItem('topicId') || '',//for generral knowledge topic only
     quizDifficulty: localStorage.getItem('quizDifficulty') || "",
-    quizResultShown:false,
+    quizResultShown: false,
     fetchedData: [],
     answersRespond: [],
 }
@@ -11,6 +13,10 @@ export const quizSlice = createSlice({
     name: "quiz",
     initialState,
     reducers: {
+        setQuizId: (state, action) => {
+            state.quizId = action.payload
+            localStorage.setItem('quizId', state.quizId)
+        },
         setQuizType: (state, action) => {
             state.quizType = action.payload
             localStorage.setItem('quizType', state.quizType)
@@ -18,6 +24,10 @@ export const quizSlice = createSlice({
         setQuizTopic: (state, action) => {
             state.quizTopic = action.payload
             localStorage.setItem('quizTopic', state.quizTopic)
+        },
+        setTopicId: (state, action) => {
+            state.topicId = action.payload
+            localStorage.setItem('topicId', state.topicId)
         },
         setQuizDifficulty: (state, action) => {
             state.quizDifficulty = action.payload
@@ -40,10 +50,10 @@ export const quizSlice = createSlice({
 
             console.log(state.answersRespond)
         },
-        setQuizResultShown:(state,action)=>{
-            state.quizResultShown=action.payload
+        setQuizResultShown: (state, action) => {
+            state.quizResultShown = action.payload
         }
     }
 })
-export const { setQuizDifficulty, setQuizTopic, setQuizType, setFetchData, setUserResponse ,setQuizResultShown} = quizSlice.actions
+export const { setQuizDifficulty, setQuizId, setQuizTopic, setTopicId, setQuizType, setFetchData, setUserResponse, setQuizResultShown } = quizSlice.actions
 export default quizSlice.reducer;

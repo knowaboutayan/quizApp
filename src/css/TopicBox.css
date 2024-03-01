@@ -8,6 +8,7 @@
     margin: 5px;
     transition: all 0.5s;
     cursor: pointer;
+ 
 }
 #topicBox img{
 
@@ -34,7 +35,7 @@
     visibility: hidden;
     overflow: hidden;
     transition: all 0.6s ease-in;
-    background-color: rgba(13, 13, 13, 0.454);
+    background-color: rgba(46, 46, 46, 0.494);
 }
 #topicBox:hover #selectTopic{
     display: flex;

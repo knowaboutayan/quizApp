@@ -7,14 +7,17 @@ const SelectDifficulty = () => {
   const dispatch = useDispatch()
   const difficultyDetails = [{
     image: easy,
+    topicId: "EASY",
     topicName: "EASY"
 
   }, {
     image: medium,
+    topicId: "MEDIUM",
     topicName: "MEDIUM"
   },
   {
     image: hard,
+    topicId: "HARD",
     topicName: "HARD"
   }
   ]
