@@ -34,7 +34,7 @@ const generalKnowledgeQuizTopic = [
   new Topic(img.arts, 'arts', 25),
   new Topic(img.history, 'history', 23),
   new Topic(img.polytics, 'polytics', 24),
-  new Topic(img.geo, 'geography', 'geography'),
+  new Topic(img.geo, 'geography', '22'),
   new Topic(img.math, 'mathematics', 19),
   new Topic(img.sports, 'sports', 21),
   new Topic(img.nature, 'NATURE', 17)
