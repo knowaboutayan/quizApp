@@ -4,7 +4,7 @@ const ErrorBox=({icon='',errorText='',navigateTo='',navigateText='',timeOutTime=
     let  x
     const navigation=useNavigate()
     return (
-        <div>
+        <div style={{width:'100wh',height:'95vh'}} className='flex flex-direction-column center-align>
             <div>
                 {(icon=='')?<p></p>:<img src={icon} alt={errorText} width={'200px'}/>}
             </div>
