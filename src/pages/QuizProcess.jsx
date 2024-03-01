@@ -29,7 +29,7 @@ const QuizProcess = () => {
 ];
 
 const generalKnowledgeQuizTopic = [
-  new Topic(img.general_knowledge, 'general knowledge', 9),
+  new Topic(img.general_knowledge, 'GK', 9),
   new Topic(img.flim, 'Flim', 11),
   new Topic(img.arts, 'arts', 25),
   new Topic(img.history, 'history', 23),
@@ -37,7 +37,7 @@ const generalKnowledgeQuizTopic = [
   new Topic(img.geo, 'geography', 'geography'),
   new Topic(img.math, 'mathematics', 19),
   new Topic(img.sports, 'sports', 21),
-  new Topic(img.scienceNnature, 'NATURE', 17)
+  new Topic(img.nature, 'NATURE', 17)
 ];
 
 

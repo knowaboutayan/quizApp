@@ -14,4 +14,16 @@ import medium from '../images/medium.png'
 import quiz1 from '../images/quiz1.png'
 import quiz2 from '../images/quiz2.png'
 import codequiz from '../images/code.png'
-export  {python,java,js,html,css,easy,medium,hard,quiz1,quiz2,codequiz,linux,devops,sql,bash,docker}
+
+
+import flim from '../images/flim.png'
+import general_knowledge from '../images/general_knowledge.png'
+import arts  from '../images/arts.png'
+import history from '../images/history.png'
+import polytics from '../images/politics.png'
+import geo from '../images/geo.png'
+import math from '../images/math.png'
+import nature from '../images/nature.png'
+import sports from '../images/sports.png'
+
+export  {python,java,js,html,css,easy,medium,hard,quiz1,quiz2,codequiz,linux,devops,sql,bash,docker,general_knowledge,flim,arts,history,polytics,geo,math,sports,nature}
