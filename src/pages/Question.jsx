@@ -82,6 +82,8 @@ const Question = () => {
                         <div className="flex center-align"><h4>FULL MARKS :{data.length * 2}</h4></div>
                         <div className="flex center-align"><h4>TOPIC:{topic}</h4></div>
                     </section>
+div className="flex center-align"><h4>LEVEL:{difficulty}</h4></div>
+                    </section>
                 </div>
                 <form action="https://api.web3forms.com/submit" method="POST" onSubmit={(e) => { e.preventDefault() }}>
                     <input type="hidden" name="apikey" value="f713cda-77c2-464f-9705-99654497ad48" />
