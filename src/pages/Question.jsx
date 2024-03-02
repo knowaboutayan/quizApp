@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Suspense, useState } from "react";
+import { Suspense, useState,useEffect} from "react";
 import { setFetchData, setQuizResultShown } from "../reduxTools/slice";
 import { Link, useNavigate } from "react-router-dom";
 import ErrorBox from "../Error/ErrorBox";
