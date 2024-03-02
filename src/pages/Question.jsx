@@ -30,9 +30,9 @@ const Question = () => {
                 return 'error'
         }
     })()
-   (()=>useEffect(() => {
+   useEffect(() => {
   window.scrollTo(0, 0)
-}, []))()
+}, [])
     if (data.length == 0) {
         return <div className="flex center-align"><ErrorBox icon={loading} errorText="please wait...."  ></ErrorBox></div>
     }
