@@ -6,7 +6,7 @@ const generalKnowledgeAPI = (category = "", difficulty = "") => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty.toLowerCase()}&type=multiple`);
+                const response = await fetch(`https://opentdb.com/api.php?amount=20&category=${category}&difficulty=${difficulty.toLowerCase()}&type=multiple`);
 if(!response.ok){
 setData('error')}
 
