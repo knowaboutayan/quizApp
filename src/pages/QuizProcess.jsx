@@ -15,6 +15,9 @@ const QuizProcess = () => {
     }
   }
 
+   useEffect(() => {
+  window.scrollTo(0, 0)
+}, [])
   const codingTopicDetails = [
     new Topic(img.sql, 'SQL', 'SQL'),
     new Topic(img.linux, 'LINUX', 'LINUX'),
