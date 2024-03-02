@@ -12,9 +12,10 @@ const ErrorBox=({icon='',errorText='',navigateTo='',navigateText='',timeOutTime=
             <div>
             {(navigateTo=='')?'':<h4>Redirect to <Link to={navigateTo}> {navigateText} </Link></h4>}
             {(timeOutTime!='')?x=setTimeout(()=>navigation(navigateTo),timeOutTime):""}
+<i class="fa fa-refresh" aria-hidden="true" onclick={()=>location.reload()}></i>    
             </div>
 
-<i class="fa fa-refresh" aria-hidden="true" onclick={()=>location.reload()}></i>        
+    
     )
 }
 export default ErrorBox
