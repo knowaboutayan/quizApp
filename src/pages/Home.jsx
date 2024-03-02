@@ -1,3 +1,4 @@
+import { useEffect} from "react";
 import { codequiz, quiz1 } from '../ImagesImport/Images'
 import QuizDetailsBox from '../components/QuizDetalsBox'
 
