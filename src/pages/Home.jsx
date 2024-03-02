@@ -6,6 +6,9 @@ import '../css/styleGeneral.css'
 import Buttons from '../buttons/Buttons'
 import { useNavigate } from 'react-router-dom'
 const Home = () => {
+   useEffect(() => {
+  window.scrollTo(0, 0)
+}, [])
     const quizTypeDetails = [{
         quizID: 1,
         quizName: "General Knowledge Quiz",
