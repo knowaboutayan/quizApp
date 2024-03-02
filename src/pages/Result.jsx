@@ -6,6 +6,9 @@ import { unstable_HistoryRouter, useNavigate } from "react-router-dom";
 import { setQuizResultShown } from "../reduxTools/slice";
 
 const Result = () => {
+   useEffect(() => {
+  window.scrollTo(0, 0)
+}, [])
     const dispatch = useDispatch()
     const answers = useSelector(state => state.fetchedData);
     const answersRespond = useSelector(state => state.answersRespond);
