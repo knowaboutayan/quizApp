@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Buttons from '../buttons/Buttons';
 import { setQuizTopic } from '../reduxTools/slice';
-const Topic = ({ methodName = null, topicDetails = {}, navigateTo = null }) => {
+const Topic = ({ methodName = null, topicDetails = {}, navigateTo = null,setTopicName=false }) => {
     const { image, topicName,topicId } = topicDetails
     console.log(topicDetails)
     const [isTopicSelected, setTopicSelected] = useState(false)
@@ -25,7 +25,7 @@ const Topic = ({ methodName = null, topicDetails = {}, navigateTo = null }) => {
     return (
         <>
 
-            <div id="topicBox" style={isTopicSelected ? { styleOnSelected } : {}} className="flex background-blur justify-space-between flex-direction-column box-shadow  transition" onClick={() => { dispatch(methodName(topicId)); dispatch(setQuizTopic(topicName)); { setTopicSelected((current) => !current); navigate(`/${navigateTo}`) } }}>
+            <div id="topicBox" style={isTopicSelected ? { styleOnSelected } : {}} className="flex background-blur justify-space-between flex-direction-column box-shadow  transition" onClick={() => { dispatch(methodName(topicId));(setTopicName)?dispatch(setQuizTopic(topicName)):null; { setTopicSelected((current) => !current); navigate(`/${navigateTo}`) } }}>
                 {(isTopicSelected) ? <div><i className='fa fa-check' style={{ fontSize: '35px', color: "green" }}></i></div> : ""}
                 <div className='flex center-align'>
                     <img src={image} alt='' />

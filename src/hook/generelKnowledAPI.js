@@ -48,18 +48,14 @@ setData('error')}
                 setData(formattedData);
 
             } catch (err) {
-<<<<<<< HEAD
                 console.error('::ERROR AT general_knowledge::', err);
-=======
-                console.error('Error fetching data:', err);
->>>>>>> 60786749b8cdcba9c505ed7354e207eca34b04f9
                 setData('error');
             }
         };
 
         fetchData();
     }, [category, difficulty]);
-
+console.log(data)
     return data;
 };
 

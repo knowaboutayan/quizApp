@@ -1,17 +1,24 @@
 import { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import '../css/Quizq&aBox.css'
-import { setUserResponse } from "../reduxTools/slice"
-const QuestionNanswer = ({ display = 'hidden', index = 0, questionID = null, question = 'Question Loading...', options = {}, marks = 0, multiAnswerd = false }) => {
-    const optionKey = Object.keys(options)
-    const dispatch = useDispatch()
 
+import '../css/Quizq&aBox.css'
+
+const QuestionNanswer = ({ display = 'hidden', index = 0, questionID = null, question = 'Question Loading...', options = {}, marks = 0, multiAnswerd = false, setUserResponse = '' }) => {
+    const optionKey = Object.keys(options)
     const [optionVal, setOptionVal] = useState([])
+    class userResponse {
+
+        constructor(questionID, response, marks) {
+            this.questionID = questionID;
+            this.response = response;
+            this.marks = marks
+        }
+    }
 
 
     const recordResponse = (questionID = '', response = '', marks = '0') => {
-        const tempResponse = [questionID, response, marks]
-        dispatch(setUserResponse(tempResponse))
+        const tempResponse = new userResponse(questionID, response, marks)
+        setUserResponse(tempResponse)
+
     }
 
     return (
@@ -20,7 +27,7 @@ const QuestionNanswer = ({ display = 'hidden', index = 0, questionID = null, que
                 <h3><b>({index + 1})</b> {question}</h3>
 
             </div>
-            <h4 style={{ display: 'inline', textAlign: 'right',margin:0 }}>[marks:{marks}]</h4>
+            <h4 style={{ display: 'inline', textAlign: 'right', margin: 0 }}>[marks:{marks}]</h4>
             <hr width='100%' />
             <div className="flex flex-direction-row flex-wrap center-align '',">
                 {

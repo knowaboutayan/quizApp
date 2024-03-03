@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Suspense, useState,useEffect} from "react";
-import { setFetchData, setQuizResultShown } from "../reduxTools/slice";
+import { Suspense, useState, useEffect } from "react";
+import { setFetchData, setQuizResultShown, setUserResponse } from "../reduxTools/slice";
 import { Link, useNavigate } from "react-router-dom";
 import ErrorBox from "../Error/ErrorBox";
 import serverError from '../images/serverError.png';
@@ -13,12 +13,18 @@ import codingQuizAPI from "../hook/codingQueAPI";
 import generalKnowledgeAPI from "../hook/generelKnowledAPI";
 
 
-
 const QuestionNanswer = lazy(() => import("../components/QuestionNanswer"));
 const Question = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+
     const [topic, difficulty, type, quizID, topicId] = [useSelector(state => state.quizTopic), useSelector(state => state.quizDifficulty), useSelector(state => state.quizType), useSelector(state => state.quizId), useSelector(state => state.topicId)];
     const navigate = useNavigate()
     const isQuizResultShown = useSelector(state => state.quizResultShown)
+    const isDisclaimerAccept = useSelector(state => state.disclaimerAccept)
+
     const data = (() => {
         switch (Number(quizID)) {
             case 1:
@@ -30,19 +36,20 @@ const Question = () => {
                 return 'error'
         }
     })()
-   useEffect(() => {
-  window.scrollTo(0, 0)
-}, [])
+
+
+
     if (data.length == 0) {
         return <div className="flex center-align"><ErrorBox icon={loading} errorText="please wait...."  ></ErrorBox></div>
     }
-    else if (type== '' ||topicId == '' || difficulty == "") {
+    else if (!isDisclaimerAccept) {
         return (
             <div className="flex center-align">
-                <ErrorBox icon={systemError} errorText="Quiz Topic or Quiz Type not selected" navigateTo="/" navigateText="home" />
+                <ErrorBox icon={systemError} errorText="" navigateTo="*" timeOutTime="0" />
             </div>
         )
-    } else if (data === 'error' || data == false||data["response_code"]==1) {
+    }
+    else if (data === 'error' || data == false || data["response_code"] == 1) {
         return (
             <div className="flex center-align">
                 <ErrorBox icon={serverError} errorText="Internal server error" navigateTo="/" navigateText="home" />
@@ -51,10 +58,11 @@ const Question = () => {
     } else if (isQuizResultShown) {
         return (
             <div className="flex center-align">
-                <ErrorBox icon={done} errorText="Form Already Submitted" navigateTo="/" navigateText="home" timeOutTime="2000" />
+                <ErrorBox icon={done} errorText="Form Already Submitted" navigateTo="/" navigateText="home" />
             </div>
         )
     } else if (data.length > 0) {
+
         const dispatch = useDispatch()
         const correctAnswer = (answers = {}) => {
             const options = Object.values(answers)
@@ -66,24 +74,57 @@ const Question = () => {
             }
         }
 
+
         let correctAnswerData = data.map((ele) => [ele.id, correctAnswer(ele.correct_answers)])
         dispatch(setFetchData(correctAnswerData))
+
         dispatch(setQuizResultShown(false))
+        let userResponseData = [];
+
+        const setUserRasponse = (res) => {
+            const index = userResponseData.findIndex(item => item.questionID === res.questionID);
+
+            if (index !== -1) {
+                // If response with the same questionID exists, update it
+                userResponseData[index] = res;
+            } else {
+                // If response does not exist, push it to userResponseData
+
+                userResponseData.push(res);
+            }
+            console.log(userResponseData)
+        };
+
+
         const submitRequest = () => {
-            confirm('Are you sure to submit?') ? navigate('/result') : '';
+            console.log(userResponseData)
+
+            let x = confirm('Are you sure to submit?')
+            if (x) {
+
+                navigate('/result')
+                dispatch(setUserResponse(userResponseData))
+            }
+        }
+        const autoSubmit = () => {
+            alert("Time Out. Form submitted Successfully")
+            navigate('/result')
+
         }
 
         return (
-            <>
+            <div>
+
+                <h2>{type}</h2>
+
                 <div>
-                    <h2>{type}</h2>
-                </div>
-                <div>
-                    <section className="flex flex-direction-row flex-wrap justify-space-between margin-auto" style={{ width: '60%' }}>
-                        <div className="flex center-align"><h4>FULL MARKS :{data.length * 2}</h4></div>
-                        <div className="flex center-align"><h4>TOPIC:{topic}</h4>
-<h4>LEVEL:{difficulty}</h4></div>
+                    <section className="flex flex-direction-row flex-wrap center-align margin-auto " style={{ width: '60%' }}>
+                        <div className="flex  margin-auto"><h4>FULL MARKS :{data.length * 2}</h4></div>
+                        <div className="flex margin-auto"><h4>TOPIC:{topic}</h4></div>
+                        <div className="flex margin-auto"><h4>LEVEL:{difficulty}</h4></div>
+
                     </section>
+
                 </div>
                 <form action="https://api.web3forms.com/submit" method="POST" onSubmit={(e) => { e.preventDefault() }}>
                     <input type="hidden" name="apikey" value="f713cda-77c2-464f-9705-99654497ad48" />
@@ -98,6 +139,7 @@ const Question = () => {
                                 options={ele.answers}
                                 marks={'02'}
                                 multianswered={ele.multiple_correct_answers}
+                                setUserResponse={setUserRasponse}
                             /></Suspense>
                         ))}
 
@@ -107,7 +149,7 @@ const Question = () => {
                     </div>
                 </form>
 
-            </>)
+            </div>)
     }
 
     return null;

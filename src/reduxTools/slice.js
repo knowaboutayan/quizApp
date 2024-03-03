@@ -5,6 +5,7 @@ const initialState = {
     quizTopic: localStorage.getItem('quizTopic') || "",
     topicId: localStorage.getItem('topicId') || '',//for generral knowledge topic only
     quizDifficulty: localStorage.getItem('quizDifficulty') || "",
+    disclaimerAccept: false,
     quizResultShown: false,
     fetchedData: [],
     answersRespond: [],
@@ -33,27 +34,20 @@ export const quizSlice = createSlice({
             state.quizDifficulty = action.payload
             localStorage.setItem('quizDifficulty', state.quizDifficulty)
         },
+        setDisclaimerAccept: (state, action) => {
+            state.disclaimerAccept = action.payload
+        },
         setFetchData: (state, action) => {
             state.fetchedData = action.payload;
         },
         setUserResponse: (state, action) => {
-
-            let [questionID, response, marks] = action.payload;
-            console.log(response)
-            console.log(state.answersRespond)
-            if (state.answersRespond.includes(questionID)) {
-                const index = state.answersRespond.indexOf(questionID)
-                console.log(index)
-                state.answersRespond.splice(index, 2)
-            }
-            state.answersRespond = [...state.answersRespond, questionID, (questionID, { 'questionID': questionID, 'response': response, 'marks': marks })];
-
-            console.log(state.answersRespond)
+            state.answersRespond = action.payload
         },
-        setQuizResultShown: (state, action) => {
-            state.quizResultShown = action.payload
+        setQuizResultShown:(state,action)=>{
+            state.quizResultShown=action.payload
+
         }
     }
 })
-export const { setQuizDifficulty, setQuizId, setQuizTopic, setTopicId, setQuizType, setFetchData, setUserResponse, setQuizResultShown } = quizSlice.actions
+export const { setQuizDifficulty, setQuizId, setQuizTopic, setTopicId, setQuizType, setFetchData, setUserResponse, setDisclaimerAccept, setQuizResultShown } = quizSlice.actions
 export default quizSlice.reducer;

@@ -1,0 +1,17 @@
+#timeOut {
+    background-color:rgb(248, 228, 199);
+    text-align: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    border-bottom: 2px solid;
+    
+    font-size: 2rem;
+    font-weight: bold;
+    margin:auto;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 10px 0;
+    color: rgb(16, 174, 5);
+}
