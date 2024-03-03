@@ -3,12 +3,13 @@ import Buttons from "../buttons/Buttons"
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ErrorBox from "../Error/ErrorBox";
-import systemError from '../images/servererror.png'
+import systemError from '../images/systemError.png'
 import { setDisclaimerAccept, setFetchData, setUserResponse } from "../reduxTools/slice";
 const Disclaimer = () => {
     const navigate = useNavigate();
     const [checked, setChcked] = useState(false)
     const [topic, difficulty, type, quizID, topicId] = [useSelector(state => state.quizTopic), useSelector(state => state.quizDifficulty), useSelector(state => state.quizType), useSelector(state => state.quizId), useSelector(state => state.topicId)];
+
     const dispatch = useDispatch()
     if (topic == '' || type == '' || difficulty == '')
         return <ErrorBox icon={systemError} errorText="Quiz Topic or Quiz Type not selected" navigateTo="/" navigateText="home" />
@@ -17,12 +18,13 @@ const Disclaimer = () => {
         <div>
             <h2>Disclaimer and User Protocols</h2>
             <section className="flex flex-direction-row flex-wrap center-align margin-auto " style={{ width: '60%' }}>
-                <div className="flex  margin-auto"><h3>Quiz Type :{String(type).toUpperCase()}</h3></div>|
+                <div className="flex  margin-auto"><h3>Quiz Type :{String(type).toUpperCase()}</h3></div>
+                </section>
+                <section className="flex flex-direction-row flex-wrap justify-space-between margin-auto " style={{ width: '60%' }}>
                 <div className="flex margin-auto"><h3>Topic:{topic}</h3></div>|
                 <div className="flex margin-auto"><h3>Level:{difficulty}</h3></div>
             </section>
             <div style={{ width: "60%", minWidth: '320px', border: '2px solid gray', padding: '20px', borderRadius: '20px', marginBottom: "25px" }} className="box-shadow background-blur margin-auto">
-
 
                 <h4>
                     <big>
@@ -53,7 +55,7 @@ const Disclaimer = () => {
 
 
                 <h5 className="margin-auto">
-                    <label> <input type="checkbox" value={checked} onClick={() => setChcked(prev => !prev)} /> I have read and accept the disclaimer. </label>
+                    <label> <input type="checkbox" value={checked} onClick={() => setChcked(prev => !prev)} required/> I have read and accept the disclaimer. </label>
                 </h5>
                 <div className=" flex center-align margin-auto">
                     <Buttons btnName="Start Quiz" width="250px" bgcolor={(checked) ? 'green' : 'gray'} disable={!checked} fname={(checked) ? () => {

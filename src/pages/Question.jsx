@@ -19,7 +19,6 @@ const Question = () => {
         window.scrollTo(0, 0);
     }, []);
 
-
     const [topic, difficulty, type, quizID, topicId] = [useSelector(state => state.quizTopic), useSelector(state => state.quizDifficulty), useSelector(state => state.quizType), useSelector(state => state.quizId), useSelector(state => state.topicId)];
     const navigate = useNavigate()
     const isQuizResultShown = useSelector(state => state.quizResultShown)
