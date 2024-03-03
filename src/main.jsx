@@ -21,7 +21,7 @@ const route = createBrowserRouter(
       <Route path="disclaimer" element={<Disclaimer />} /> {/* Corrected component name */}
       <Route path="question" element={<Question />} /> {/* Corrected component name */}
       <Route path="result" element={<Result />} />
- <Route  path="*" element={<PageNotFound/>} />
+      <Route path="*" element={<PageNotFound />} />
 
     </Route>
   )
