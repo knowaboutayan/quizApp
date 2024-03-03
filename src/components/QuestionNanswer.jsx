@@ -24,10 +24,10 @@ const QuestionNanswer = ({ display = 'hidden', index = 0, questionID = null, que
     return (
         <div id="qNa-box" className="flex flex-direction-column margin-auto" style={{ display: `${display}` }}>
             <div >
-                <h3><b>({index + 1})</b> {question}</h3>
+                <h4><b>({index + 1})</b> {question}</h4>
 
             </div>
-            <h4 style={{ display: 'inline', textAlign: 'right', margin: 0 }}>[marks:{marks}]</h4>
+            <h6 style={{ display: 'inline', textAlign: 'right', margin: 0 }}>[marks:{marks}]</h6>
             <hr width='100%' />
             <div className="flex flex-direction-row flex-wrap center-align '',">
                 {
