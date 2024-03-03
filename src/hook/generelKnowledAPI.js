@@ -49,8 +49,8 @@ const generalKnowledgeAPI = (category = "", difficulty = "") => {
 
                 setData(formattedData);
             } catch (err) {
-                console.error('Error fetching data:', err);
-                setData([]);
+                console.error('::ERROR AT general_knowledge::', err);
+                setData('error');
             }
         };
 

@@ -9,12 +9,13 @@ const codingQuizAPI = (category = "", difficulty = "") => {
 
                 if (!response.ok)
                     setData(response.ok)
-
+                console.log(response)
                 const fetchedData = await response.json();
                 setData(fetchedData);
             } catch (err) {
                 console.log('::Error Fetch::', err); // Log the actual error
-                return 'error'
+                
+                setData('error')
 
             }
         })();
@@ -23,7 +24,7 @@ const codingQuizAPI = (category = "", difficulty = "") => {
     }, [category, difficulty]);
 
     console.log(data)
-    return (data['error'] == 'No questions found') ? 'error' : data; // Optionally, you can return data if you want to use it outside the hook
+    return data; // Optionally, you can return data if you want to use it outside the hook
 };
 
 export default codingQuizAPI;
