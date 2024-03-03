@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react";
 
 const generalKnowledgeAPI = (category = "", difficulty = "") => {
-    const [data, setData] = useState([]);
+    let [data, setData] = useState([]);
     
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty.toLowerCase()}&type=multiple`);
+                const response = await fetch(`https://opentdb.com/api.php?amount=20&category=${category}&difficulty=${difficulty.toLowerCase()}&type=multiple`);
+if(!response.ok){
+setData('error')}
 
-                if (!response.ok) {
-                    throw new Error('Failed to fetch data');
-                }
-
-                const fetchedData = await response.json();
+                let fetchedData = await response.json();
                 
                 class Data {
                     constructor(id, question = '', correct_answers = '', incorrect_ops = []) {
@@ -48,8 +46,13 @@ const generalKnowledgeAPI = (category = "", difficulty = "") => {
                 });
 
                 setData(formattedData);
+
             } catch (err) {
+<<<<<<< HEAD
                 console.error('::ERROR AT general_knowledge::', err);
+=======
+                console.error('Error fetching data:', err);
+>>>>>>> 60786749b8cdcba9c505ed7354e207eca34b04f9
                 setData('error');
             }
         };

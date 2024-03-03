@@ -4,7 +4,7 @@ const ErrorBox=({icon='',errorText='',navigateTo='',navigateText='',timeOutTime=
     let  x
     const navigation=useNavigate()
     return (
-        <div>
+        <div style={{width:'100wh',height:'95vh'}} className='flex flex-direction-column center-align'>
             <div>
                 {(icon=='')?<p></p>:<img src={icon} alt={errorText} width={'200px'}/>}
             </div>
@@ -13,7 +13,8 @@ const ErrorBox=({icon='',errorText='',navigateTo='',navigateText='',timeOutTime=
             {(navigateTo=='')?'':<h4>Redirect to <Link to={navigateTo}> {navigateText} </Link></h4>}
             {(timeOutTime!='')?x=setTimeout(()=>navigation(navigateTo),timeOutTime):""}
             </div>
-        </div>
+<i class="fa fa-refresh" aria-hidden="true" onclick={()=>location.reload()}></i>    
+    </div>
     )
 }
 export default ErrorBox

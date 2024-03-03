@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Suspense, useState } from "react";
+import { Suspense, useState,useEffect} from "react";
 import { setFetchData, setQuizResultShown } from "../reduxTools/slice";
 import { Link, useNavigate } from "react-router-dom";
 import ErrorBox from "../Error/ErrorBox";
@@ -30,17 +30,19 @@ const Question = () => {
                 return 'error'
         }
     })()
-    console.log(data)
+   useEffect(() => {
+  window.scrollTo(0, 0)
+}, [])
     if (data.length == 0) {
-        return <div className="flex center-align"><ErrorBox icon={loading} errorText="Loading... please wait"  ></ErrorBox></div>
+        return <div className="flex center-align"><ErrorBox icon={loading} errorText="please wait...."  ></ErrorBox></div>
     }
-    else if (topicId == '' || difficulty == "") {
+    else if (type== '' ||topicId == '' || difficulty == "") {
         return (
             <div className="flex center-align">
                 <ErrorBox icon={systemError} errorText="Quiz Topic or Quiz Type not selected" navigateTo="/" navigateText="home" />
             </div>
         )
-    } else if (data === 'error' || data == false) {
+    } else if (data === 'error' || data == false||data["response_code"]==1) {
         return (
             <div className="flex center-align">
                 <ErrorBox icon={serverError} errorText="Internal server error" navigateTo="/" navigateText="home" />
@@ -67,7 +69,6 @@ const Question = () => {
         let correctAnswerData = data.map((ele) => [ele.id, correctAnswer(ele.correct_answers)])
         dispatch(setFetchData(correctAnswerData))
         dispatch(setQuizResultShown(false))
-        window.addEventListener('DOMContentLoaded', localStorage.clear())
         const submitRequest = () => {
             confirm('Are you sure to submit?') ? navigate('/result') : '';
         }
@@ -78,10 +79,10 @@ const Question = () => {
                     <h2>{type}</h2>
                 </div>
                 <div>
-
                     <section className="flex flex-direction-row flex-wrap justify-space-between margin-auto" style={{ width: '60%' }}>
                         <div className="flex center-align"><h4>FULL MARKS :{data.length * 2}</h4></div>
-                        <div className="flex center-align"><h4>TOPIC:{topic}</h4></div>
+                        <div className="flex center-align"><h4>TOPIC:{topic}</h4>
+<h4>LEVEL:{difficulty}</h4></div>
                     </section>
                 </div>
                 <form action="https://api.web3forms.com/submit" method="POST" onSubmit={(e) => { e.preventDefault() }}>

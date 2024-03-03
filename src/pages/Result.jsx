@@ -5,7 +5,11 @@ import ErrorBox from "../Error/ErrorBox";
 import { unstable_HistoryRouter, useNavigate } from "react-router-dom";
 import { setQuizResultShown } from "../reduxTools/slice";
 
+import{useEffect} from 'react'
 const Result = () => {
+   useEffect(() => {
+  window.scrollTo(0, 0)
+}, [])
     const dispatch = useDispatch()
     const answers = useSelector(state => state.fetchedData);
     const answersRespond = useSelector(state => state.answersRespond);

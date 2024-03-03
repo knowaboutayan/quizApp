@@ -1,3 +1,4 @@
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux"
 import ChooseTopic from "../components/ChooseTopic"
 import * as img from '../ImagesImport/Images'
@@ -15,7 +16,14 @@ const QuizProcess = () => {
     }
   }
 
+<<<<<<< HEAD
   const codingTopicList = [
+=======
+   useEffect(() => {
+  window.scrollTo(0, 0)
+}, [])
+  const codingTopicDetails = [
+>>>>>>> 60786749b8cdcba9c505ed7354e207eca34b04f9
     new Topic(img.sql, 'SQL', 'SQL'),
     new Topic(img.linux, 'LINUX', 'LINUX'),
     new Topic(img.docker, 'DOCKER', 'DOCKER'),
@@ -34,7 +42,7 @@ const generalKnowledgeQuizTopicList= [
   new Topic(img.arts, 'arts', 25),
   new Topic(img.history, 'history', 23),
   new Topic(img.polytics, 'polytics', 24),
-  new Topic(img.geo, 'geography', 'geography'),
+  new Topic(img.geo, 'geography', '22'),
   new Topic(img.math, 'mathematics', 19),
   new Topic(img.sports, 'sports', 21),
   new Topic(img.nature, 'NATURE', 17)
@@ -53,7 +61,12 @@ const generalKnowledgeQuizTopicList= [
         dispatch(setQuizId(2))
         return codingTopicList
       default:
+<<<<<<< HEAD
         return generalKnowledgeQuizTopicList
+=======
+dispatch(setQuizId(1))
+        return generalKnowledgeQuizTopic
+>>>>>>> 60786749b8cdcba9c505ed7354e207eca34b04f9
     }
   }
 
