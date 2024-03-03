@@ -3,7 +3,7 @@ import ErrorBox from "../Error/ErrorBox";
 import serverError from '../images/serverError.png';
 
 const PageNotFound = () => {
-  useEffect() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
