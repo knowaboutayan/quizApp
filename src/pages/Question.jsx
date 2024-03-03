@@ -119,6 +119,8 @@ const Question = () => {
                 <div>
                     <section className="flex flex-direction-row flex-wrap center-align margin-auto " style={{ width: '60%' }}>
                         <div className="flex  margin-auto"><h4>FULL MARKS :{data.length * 2}</h4></div>
+                        </section>
+                        <section className="flex flex-direction-row flex-wrap center-align margin-auto " style={{ width: '60%' }}>
                         <div className="flex margin-auto"><h4>TOPIC:{topic}</h4></div>
                         <div className="flex margin-auto"><h4>LEVEL:{difficulty}</h4></div>
 
