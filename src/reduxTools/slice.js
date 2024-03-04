@@ -38,7 +38,9 @@ export const quizSlice = createSlice({
             state.disclaimerAccept = action.payload
         },
         setFetchData: (state, action) => {
+            console.log(action.payload)
             state.fetchedData = action.payload;
+            console.log(state.fetchedData)
         },
         setUserResponse: (state, action) => {
             state.answersRespond = action.payload

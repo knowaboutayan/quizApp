@@ -56,7 +56,7 @@ const Disclaimer = () => {
                     <label> <input type="checkbox" value={checked} onClick={() => setChcked(prev => !prev)} required /> I have read and accept the disclaimer. </label>
                 </p>
                 <div className=" flex center-align margin-auto">
-                    <Buttons btnName="Start Quiz" width="250px" bgcolor={(checked) ? 'green' : 'gray'} disable={!checked} fname={(checked) ? () => {
+                    <Buttons btnName="Start Quiz" type="button" width="250px" bgcolor={(checked) ? 'green' : 'gray'} disable={!checked} fname={(checked) ? () => {
                         
                         dispatch(setUserResponse([]));
                         dispatch(setFetchData([])); 

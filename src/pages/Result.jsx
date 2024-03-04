@@ -17,6 +17,7 @@ const dispatch=useDispatch()
     let marks = 0;
     let correctAns = 0;
     // Calculate marks obtained
+    console.log(answers)
     const marksObtained = () => {
         answers.forEach(element => {
             answersRespond.forEach(responseEle => {

@@ -64,7 +64,12 @@ const Question = () => {
 
     else if (data.length > 0) {
 
+
+
+
         const dispatch = useDispatch()
+
+
         const correctAnswer = (answers = {}) => {
             const options = Object.values(answers)
             const keys = Object.keys(answers)
@@ -75,9 +80,11 @@ const Question = () => {
             }
         }
 
+        const feedCorrectAnswersFromAPI = () => {
+            let correctAnswerData = data.map((ele) => [ele.id, correctAnswer(ele.correct_answers)])
+            dispatch(setFetchData(correctAnswerData))
+        }
 
-        let correctAnswerData = data.map((ele) => [ele.id, correctAnswer(ele.correct_answers)])
-        dispatch(setFetchData(correctAnswerData))
 
         dispatch(setQuizResultShown(false))
         let userResponseData = [];
@@ -98,15 +105,16 @@ const Question = () => {
 
 
         const submitRequest = () => {
-            console.log(userResponseData)
+
 
             let x = confirm('Are you sure to submit?')
             if (x) {
 
-                navigate('/result')
-                dispatch(isQuizResultShown(false))
 
+                dispatch(setQuizResultShown(false))
                 dispatch(setUserResponse(userResponseData))
+                feedCorrectAnswersFromAPI()
+                navigate('/result')
             }
         }
         const autoSubmit = () => {
@@ -119,10 +127,8 @@ const Question = () => {
 
         return (
             <>
-
                 <Disclaimer />
                 <div>
-
                     <h2>{type}</h2>
 
                     <div>
@@ -158,7 +164,9 @@ const Question = () => {
                         </div>
                     </form>
 
-                </div></>)
+                </div>
+
+            </>)
     }
 
     return null;
