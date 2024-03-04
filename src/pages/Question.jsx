@@ -42,6 +42,9 @@ const Question = () => {
     if (data.length == 0) {
         return <div className="flex center-align"><ErrorBox icon={loading} errorText="please wait...."  ></ErrorBox></div>
     }
+    else if (isDisclaimerAccept) {
+        return <div className="flex center-align"><ErrorBox icon={systemError} errorText="Something went wrong" navigateTo="*" timeOutTime="0" ></ErrorBox></div>
+    }
     else if (data === 'error' || data == false || data["response_code"] == 1) {
         return (
             <div className="flex center-align">

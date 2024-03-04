@@ -16,19 +16,6 @@ const Disclaimer = () => {
     const [animation, setAnimationReverse] = useState('popUpCome')
 
     return (
-<<<<<<< HEAD
-=======
-        <div>
-            <h2>Disclaimer and User Protocols</h2>
-            <section className="flex flex-direction-row flex-wrap center-align margin-auto " style={{ width: '60%' }}>
-                <div className="flex  margin-auto"><h3>{String(type).toUpperCase()}</h3></div>
-                </section>
-                <section className="flex flex-direction-row flex-wrap justify-space-between margin-auto " style={{ width: '60%' }}>
-                <div className="flex margin-auto"><h3>Topic:{topic}</h3></div>|
-                <div className="flex margin-auto"><h3>Level:{difficulty}</h3></div>
-            </section>
-            <div style={{ width: "60%", minWidth: '320px', border: '2px solid gray', padding: '20px', borderRadius: '20px', marginBottom: "25px" }} className="box-shadow background-blur margin-auto">
->>>>>>> 33b21dea3c2f25270adcb9e84cf74568bfb57136
 
 
         <div className="windowBackground background-blur" style={{visibility:(animation==='popUpCome')?'visible':'hidden'}}>

@@ -72,7 +72,7 @@ h5 {
 
 .windowBackground {
 
-    background-color: #393838cd;
+    background-color: #4fa78e70;
     position: fixed;
     top: 0;
     overflow: auto;
@@ -98,7 +98,7 @@ h5 {
     box-sizing: border-box;
     padding: 0;
     box-shadow: 0 0 5px rgb(9, 9, 9);
-    background-color: rgb(252, 250, 248);
+    background-color:aliceblue;
     color: rgb(43, 43, 43);
 }
 
