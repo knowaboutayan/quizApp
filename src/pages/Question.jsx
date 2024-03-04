@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Suspense, useState, useEffect } from "react";
-import { setFetchData, setQuizResultShown, setUserResponse } from "../reduxTools/slice";
+import { setDisclaimerAccept, setFetchData, setQuizResultShown, setUserResponse } from "../reduxTools/slice";
 import { Link, useNavigate } from "react-router-dom";
 import ErrorBox from "../Error/ErrorBox";
 import serverError from '../images/serverError.png';
@@ -51,7 +51,9 @@ const Question = () => {
                 <ErrorBox icon={serverError} errorText="Internal server error" navigateTo="/" navigateText="home" />
             </div>
         )
-    } else if (isQuizResultShown) {
+    } 
+    
+    else if (isQuizResultShown) {
         return (
             <div className="flex center-align">
                 <ErrorBox icon={done} errorText="Form Already Submitted" navigateTo="/" navigateText="home" />
@@ -103,6 +105,7 @@ const Question = () => {
 
                 navigate('/result')
                 dispatch(isQuizResultShown(false))
+                dispatch(setDisclaimerAccept(true));
                 dispatch(setUserResponse(userResponseData))
             }
         }

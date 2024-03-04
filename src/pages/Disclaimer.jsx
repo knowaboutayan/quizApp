@@ -57,7 +57,7 @@ const Disclaimer = () => {
                 </p>
                 <div className=" flex center-align margin-auto">
                     <Buttons btnName="Start Quiz" width="250px" bgcolor={(checked) ? 'green' : 'gray'} disable={!checked} fname={(checked) ? () => {
-                        dispatch(setDisclaimerAccept(true));
+                        
                         dispatch(setUserResponse([]));
                         dispatch(setFetchData([])); 
                         setAnimationReverse('popUpGo');
