@@ -4,7 +4,7 @@ import './Header.css'
 import Buttons from '../buttons/Buttons'
 const Header = ({ logo = "" }) => {
     return (
-        <div className="header flex flex-direction-row border justify-space-between">
+        <div className="header flex flex-direction-row border justify-space-between" style={{zIndex:"3"}}>
             <div>
                 <img src={logo} alt='logo.png' width={'60px'} className='border' />
             </div>

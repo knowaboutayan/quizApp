@@ -5,6 +5,7 @@
  font-size: 1.2rem;
  align-items: center;
     padding: 10px 20px;
+    z-index: 2;
 }
 
 .header img {

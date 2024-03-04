@@ -27,7 +27,7 @@ const SelectDifficulty = () => {
   ]
   dispatch(setQuizResultShown(false))
   return (
-    <ChooseTopic methodName={setQuizDifficulty} title={'DIFFICULTY'} topicDetails={difficultyDetails} navigateTo={"disclaimer"} />
+    <ChooseTopic methodName={setQuizDifficulty} title={'DIFFICULTY'} topicDetails={difficultyDetails} navigateTo={"question"} />
 
   )
 }

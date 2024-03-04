@@ -11,6 +11,7 @@ import Buttons from "../buttons/Buttons";
 import { lazy } from "react";
 import codingQuizAPI from "../hook/codingQueAPI";
 import generalKnowledgeAPI from "../hook/generelKnowledAPI";
+import Disclaimer from "./Disclaimer";
 
 
 const QuestionNanswer = lazy(() => import("../components/QuestionNanswer"));
@@ -40,13 +41,6 @@ const Question = () => {
 
     if (data.length == 0) {
         return <div className="flex center-align"><ErrorBox icon={loading} errorText="please wait...."  ></ErrorBox></div>
-    }
-    else if (!isDisclaimerAccept) {
-        return (
-            <div className="flex center-align">
-                <ErrorBox icon={systemError} errorText="" navigateTo="*" timeOutTime="0" />
-            </div>
-        )
     }
     else if (data === 'error' || data == false || data["response_code"] == 1) {
         return (
@@ -111,46 +105,50 @@ const Question = () => {
 
         }
 
+
+
         return (
-            <div>
+            <>
 
-                <h2>{type}</h2>
-
+                <Disclaimer />
                 <div>
-                    <section className="flex flex-direction-row flex-wrap center-align margin-auto " style={{ width: '60%' }}>
-                        <div className="flex  margin-auto"><h4>FULL MARKS :{data.length * 2}</h4></div>
+
+                    <h2>{type}</h2>
+
+                    <div>
+                        <section className="flex flex-direction-row flex-wrap center-align margin-auto " style={{ width: '60%' }}>
+                            <div className="flex  margin-auto"><h4>FULL MARKS :{data.length * 2}</h4></div>
                         </section>
                         <section className="flex flex-direction-row flex-wrap center-align margin-auto " style={{ width: '60%' }}>
-                        <div className="flex margin-auto"><h4>TOPIC:{topic}</h4></div>
-                        <div className="flex margin-auto"><h4>LEVEL:{difficulty}</h4></div>
-
-                    </section>
-
-                </div>
-                <form action="https://api.web3forms.com/submit" method="POST" onSubmit={(e) => { e.preventDefault() }}>
-                    <input type="hidden" name="apikey" value="f713cda-77c2-464f-9705-99654497ad48" />
-                    <input type="hidden" name="subject" value="quizTopic submission" />
-                    <div>
-                        {data.map((ele, index1) => (
-                            <Suspense fallback={<div>Loading...</div>}>  <QuestionNanswer
-                                key={ele.id}
-                                questionID={ele.id}
-                                question={ele.question}
-                                index={index1}
-                                options={ele.answers}
-                                marks={'02'}
-                                multianswered={ele.multiple_correct_answers}
-                                setUserResponse={setUserRasponse}
-                            /></Suspense>
-                        ))}
+                            <div className="flex margin-auto"><h4>TOPIC:{topic}</h4></div>
+                            <div className="flex margin-auto"><h4>LEVEL:{difficulty}</h4></div>
+                        </section>
 
                     </div>
-                    <div className="flex center-align">
-                        <Buttons type="submit" btnName="submit" borderRadius="5px" fname={submitRequest} />
-                    </div>
-                </form>
+                    <form action="https://api.web3forms.com/submit" method="POST" onSubmit={(e) => { e.preventDefault() }}>
+                        <input type="hidden" name="apikey" value="f713cda-77c2-464f-9705-99654497ad48" />
+                        <input type="hidden" name="subject" value="quizTopic submission" />
+                        <div>
+                            {data.map((ele, index1) => (
+                                <Suspense fallback={<div>Loading...</div>}>  <QuestionNanswer
+                                    key={ele.id}
+                                    questionID={ele.id}
+                                    question={ele.question}
+                                    index={index1}
+                                    options={ele.answers}
+                                    marks={'02'}
+                                    multianswered={ele.multiple_correct_answers}
+                                    setUserResponse={setUserRasponse}
+                                /></Suspense>
+                            ))}
 
-            </div>)
+                        </div>
+                        <div className="flex center-align">
+                            <Buttons type="submit" btnName="submit" borderRadius="5px" fname={submitRequest} />
+                        </div>
+                    </form>
+
+                </div></>)
     }
 
     return null;

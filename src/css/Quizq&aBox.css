@@ -12,11 +12,14 @@
     margin: 10px auto;
     color: rgb(0, 0, 0);
     border: 2px solid rgb(72, 195, 233);
+    text-wrap: wrap;
+    text-overflow:inherit;
+    
 
 }
 
 #qNa-box h4 {
-    color: rgb(85, 84, 84);
+    color: rgb(74, 72, 72);
 }
 
 #input{

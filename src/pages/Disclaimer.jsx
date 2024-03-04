@@ -13,19 +13,17 @@ const Disclaimer = () => {
     const dispatch = useDispatch()
     if (topic == '' || type == '' || difficulty == '')
         return <ErrorBox icon={systemError} errorText="Quiz Topic or Quiz Type not selected" navigateTo="/" navigateText="home" />
+    const [animation, setAnimationReverse] = useState('popUpCome')
 
     return (
-        <div>
-            <h2>Disclaimer and User Protocols</h2>
-            <section className="flex flex-direction-row flex-wrap center-align margin-auto " style={{ width: '60%' }}>
-                <div className="flex  margin-auto"><h3>Quiz Type :{String(type).toUpperCase()}</h3></div>
-                </section>
-                <section className="flex flex-direction-row flex-wrap justify-space-between margin-auto " style={{ width: '60%' }}>
-                <div className="flex margin-auto"><h3>Topic:{topic}</h3></div>|
-                <div className="flex margin-auto"><h3>Level:{difficulty}</h3></div>
-            </section>
-            <div style={{ width: "60%", minWidth: '320px', border: '2px solid gray', padding: '20px', borderRadius: '20px', marginBottom: "25px" }} className="box-shadow background-blur margin-auto">
 
+
+        <div className="windowBackground background-blur" style={{visibility:(animation==='popUpCome')?'visible':'hidden'}}>
+
+            <div className={` background-blur  popUpBox ${animation}`}>
+                <h2>
+                    Disclaimer!
+                </h2>
                 <h4>
                     <big>
                         <u> Accuracy and Reliability:</u>
@@ -54,14 +52,14 @@ const Disclaimer = () => {
                 </h4>
 
 
-                <h5 className="margin-auto">
-                    <label> <input type="checkbox" value={checked} onClick={() => setChcked(prev => !prev)} required/> I have read and accept the disclaimer. </label>
-                </h5>
+                < p className="margin-auto">
+                    <label> <input type="checkbox" value={checked} onClick={() => setChcked(prev => !prev)} required /> I have read and accept the disclaimer. </label>
+                </p>
                 <div className=" flex center-align margin-auto">
                     <Buttons btnName="Start Quiz" width="250px" bgcolor={(checked) ? 'green' : 'gray'} disable={!checked} fname={(checked) ? () => {
-                        dispatch(setDisclaimerAccept(true)); 
+                        dispatch(setDisclaimerAccept(true));
                         dispatch(setUserResponse([]));
-                        dispatch(setFetchData([])); navigate('/question');
+                        dispatch(setFetchData([])); setAnimationReverse('popUpGo');
                     } : ''} borderRadius="5px"></Buttons>
                 </div>
             </div>
