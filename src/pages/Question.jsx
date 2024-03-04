@@ -51,8 +51,8 @@ const Question = () => {
                 <ErrorBox icon={serverError} errorText="Internal server error" navigateTo="/" navigateText="home" />
             </div>
         )
-    } 
-    
+    }
+
     else if (isQuizResultShown) {
         return (
             <div className="flex center-align">
@@ -105,7 +105,7 @@ const Question = () => {
 
                 navigate('/result')
                 dispatch(isQuizResultShown(false))
-                dispatch(setDisclaimerAccept(true));
+
                 dispatch(setUserResponse(userResponseData))
             }
         }
