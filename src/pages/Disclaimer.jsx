@@ -18,7 +18,7 @@ const Disclaimer = () => {
         <div>
             <h2>Disclaimer and User Protocols</h2>
             <section className="flex flex-direction-row flex-wrap center-align margin-auto " style={{ width: '60%' }}>
-                <div className="flex  margin-auto"><h3>Quiz Type :{String(type).toUpperCase()}</h3></div>
+                <div className="flex  margin-auto"><h3>{String(type).toUpperCase()}</h3></div>
                 </section>
                 <section className="flex flex-direction-row flex-wrap justify-space-between margin-auto " style={{ width: '60%' }}>
                 <div className="flex margin-auto"><h3>Topic:{topic}</h3></div>|
