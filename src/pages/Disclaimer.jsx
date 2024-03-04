@@ -30,7 +30,7 @@ const Disclaimer = () => {
                     <big>
                         <u> Accuracy and Reliability:</u>
                     </big>
-                    The ByteBrain provided in this application are designed for educational and entertainment purposes. While we make every effort to ensure the accuracy and reliability of the information presented, we cannot guarantee the correctness of every answer or the completeness of every topic covered.
+                   <h5> The ByteBrain provided in this application are designed for educational and entertainment purposes. While we make every effort to ensure the accuracy and reliability of the information presented, we cannot guarantee the correctness of every answer or the completeness of every topic covered.</h5>
                 </h4>
                 <h4>
                     <big>
