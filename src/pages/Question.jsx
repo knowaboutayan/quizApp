@@ -54,7 +54,10 @@ const Question = () => {
                 <ErrorBox icon={done} errorText="Form Already Submitted" navigateTo="/" navigateText="home" />
             </div>
         )
-    } else if (data.length > 0) {
+    }
+
+
+    else if (data.length > 0) {
 
         const dispatch = useDispatch()
         const correctAnswer = (answers = {}) => {
@@ -96,6 +99,7 @@ const Question = () => {
             if (x) {
 
                 navigate('/result')
+                dispatch(isQuizResultShown(false))
                 dispatch(setUserResponse(userResponseData))
             }
         }
