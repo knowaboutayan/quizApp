@@ -27,7 +27,7 @@ const QuestionNanswer = ({ display = 'hidden', index = 0, questionID = null, que
                 <h3><b>({index + 1})</b> {question}</h3>
 
             </div>
-            <h4 style={{ display: 'inline', textAlign: 'right', margin: 0 }}>[marks:{marks}]</h4>
+            <h5 style={{ display: 'inline', textAlign: 'right', margin: 0 }}>[marks:{marks}]</h5>
             <hr width='100%' />
             <div className="flex flex-direction-row flex-wrap center-align '',">
                 {
