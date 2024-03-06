@@ -21,7 +21,7 @@
 }
 #quizBox:hover{
     transform:translateY(-5px);
-    color: white;
+    color: white !important;
     border-color:rgb(91, 64, 212) ;
     background: linear-gradient(-145deg,#80a6fe ,#8d1ff3);
 }
